@@ -1,0 +1,201 @@
+:root {
+    --neon-pink: #FF00FF;
+    --toxic-green: #39FF14;
+    --black: #000000;
+    --white: #FFFFFF;
+    --chaos-gradient: linear-gradient(45deg, var(--neon-pink), var(--toxic-green));
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text y="24" font-size="24">🚰</text></svg>'), auto;
+}
+
+body {
+    background-color: var(--black);
+    color: var(--white);
+    font-family: 'Comic Neue', cursive;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+#emoji-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--chaos-gradient);
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 20px solid var(--toxic-green);
+}
+
+.chaos-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255, 0, 255, 0.1) 20px, rgba(255, 0, 255, 0.1) 40px);
+    animation: move-bg 10s linear infinite;
+}
+
+@keyframes move-bg {
+    from { transform: translate(-25%, -25%); }
+    to { transform: translate(0, 0); }
+}
+
+h1 {
+    font-family: 'Bungee', cursive;
+    font-size: 5rem;
+    color: var(--white);
+    text-shadow: 10px 10px 0px var(--black);
+    margin-bottom: 2rem;
+    z-index: 10;
+    transform: rotate(-2deg);
+}
+
+.hero-image-container {
+    background: var(--black);
+    padding: 20px;
+    border: 10px solid var(--toxic-green);
+    box-shadow: 20px 20px 0px var(--neon-pink);
+    max-width: 500px;
+    z-index: 10;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hero-image-container:hover {
+    transform: rotate(5deg) scale(1.1);
+}
+
+.hero-img {
+    width: 100%;
+    height: auto;
+    filter: contrast(1.2) brightness(1.1);
+}
+
+.caption {
+    font-weight: bold;
+    color: var(--toxic-green);
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+.section {
+    padding: 5rem 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: 'Bungee', cursive;
+    font-size: 3rem;
+    color: var(--neon-pink);
+    text-shadow: 4px 4px 0px var(--toxic-green);
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.bio-content {
+    background: var(--white);
+    color: var(--black);
+    padding: 3rem;
+    border: 8px solid var(--neon-pink);
+    box-shadow: 15px 15px 0px var(--toxic-green);
+    font-size: 1.3rem;
+    transform: rotate(1deg);
+}
+
+.bio-content p {
+    margin-bottom: 1.5rem;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.award-card {
+    background: #222;
+    padding: 2rem;
+    border: 5px solid var(--toxic-green);
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.award-card:hover {
+    background: var(--neon-pink);
+    transform: translateY(-10px);
+}
+
+.award-card .icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+blockquote {
+    font-size: 1.5rem;
+    padding: 2rem;
+    border-left: 10px solid var(--neon-pink);
+    background: #111;
+    position: relative;
+}
+
+blockquote cite {
+    display: block;
+    margin-top: 1rem;
+    color: var(--toxic-green);
+    font-weight: bold;
+    font-style: normal;
+}
+
+footer {
+    background: var(--neon-pink);
+    color: var(--black);
+    text-align: center;
+    padding: 3rem;
+    font-weight: bold;
+    font-family: 'Bungee', cursive;
+}
+
+/* Floating Animation */
+.floating-emoji {
+    position: absolute;
+    font-size: 2rem;
+    animation: float-upwards var(--duration) linear forwards;
+    opacity: 0.8;
+}
+
+@keyframes float-upwards {
+    to {
+        transform: translateY(-100vh) rotate(360deg);
+    }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 3rem; }
+    .section-title { font-size: 2rem; }
+}
